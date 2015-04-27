@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyTabBar">
+        <attr name="bottom_labels" format="reference" />
+        <attr name="bottom_icon" format="reference" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/btn_click_selector">
+    
+    <ImageView 
+        android:id="@+id/iv_pic"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/default_pic"
+        />
+        
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/iv_pic"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLength="30"
+            android:singleLine="true"
+            android:text="sjq"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/tv_title"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:text="sjq"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+        
+        <TextView
+            android:id="@+id/tv_onlineCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_title"
+            android:gravity="center_vertical"
+            android:text="1.1万" />
+        
+</RelativeLayout>

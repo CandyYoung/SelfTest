@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingLeft="@dimen/hori_padding"
+    android:paddingRight="@dimen/hori_padding"
+    android:paddingTop="@dimen/ver_padding"
+    android:paddingBottom="@dimen/ver_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/et_key_word"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="请输入搜索关键词"
+            android:singleLine="true"
+            android:textAlignment="center" 
+            android:imeOptions="actionSearch">
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Search" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/seperate_line_linear_gradient" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" 
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="12dp">
+
+        <Button
+            android:id="@+id/btn_program"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/seg_btn_background_selector"
+            android:text="直播间" 
+            />
+
+        <Button
+            android:id="@+id/btn_anchor"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/seg_btn_background_selector"
+            android:text="主播" />
+    </LinearLayout>
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/light_gray" />
+    
+    <GridView 
+        android:id="@+id/gv_rooms"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        />
+    
+    <ListView
+        android:id="@+id/lv_anchors"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:visibility="gone" />
+
+</LinearLayout>

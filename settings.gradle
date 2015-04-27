@@ -1,0 +1,2 @@
+include ':SelfTest'
+include ':appcompat_v7'

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_loading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    
+    <View 
+        android:id="@+id/circle_1"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@drawable/loading_cycle"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        />
+    <View 
+        android:id="@+id/circle_2"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@drawable/loading_cycle"
+        android:layout_alignLeft="@id/circle_1"
+        android:layout_alignTop="@id/circle_1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        />
+
+</RelativeLayout>

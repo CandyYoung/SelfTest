@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/loading_monkey_fail_01" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_02" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_03" android:duration="200" />
+	<item android:drawable="@drawable/loading_monkey_fail_04" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_05" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_06" android:duration="200" />
+    <item android:drawable="@drawable/loading_monkey_fail_07" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_08" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_09" android:duration="200" />
+	<item android:drawable="@drawable/loading_monkey_fail_10" android:duration="200" /> 
+    <item android:drawable="@drawable/loading_monkey_fail_11" android:duration="200" /> 
+</animation-list>
