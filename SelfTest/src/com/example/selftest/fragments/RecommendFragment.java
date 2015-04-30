@@ -20,14 +20,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
 
 public class RecommendFragment extends Fragment implements WebRequestListener {
 	private static final String TAG = "RecommendFragment";
@@ -38,13 +36,14 @@ public class RecommendFragment extends Fragment implements WebRequestListener {
 	private static final int RES_COMPLETE = 0;
 	private ListView mListView;
 	private static RecommendListAdapter mAdapter;
-    private PtrClassicFrameLayout mFrameLayout;
+    private static PtrClassicFrameLayout mRefreshLayout;
 
 	private static Handler mHandler = new Handler(new Handler.Callback() {
 		@Override
 		public boolean handleMessage(Message msg) {
 			if (msg.what == RES_COMPLETE) {
 				if (msg.obj != null) {
+                    mRefreshLayout.refreshComplete();
 					mAdapter.setData((RecommendItem[]) msg.obj);
 				}
 			}
@@ -69,12 +68,6 @@ public class RecommendFragment extends Fragment implements WebRequestListener {
 	}
 
 	@Override
-	public void onResume() {
-		Log.i(TAG, "onResume");
-		super.onResume();
-	}
-
-	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		Log.i(TAG, "onViewCreated");
 		super.onViewCreated(view, savedInstanceState);
@@ -83,9 +76,9 @@ public class RecommendFragment extends Fragment implements WebRequestListener {
 		mAdapter = new RecommendListAdapter(null, mActivity);
 		mListView.setAdapter(mAdapter);
 
-        mFrameLayout = (PtrClassicFrameLayout) mViewRoot.findViewById(R.id.frame_layout);
-        mFrameLayout.setLastUpdateTimeRelateObject(this);
-        mFrameLayout.setPtrHandler(new PtrDefaultHandler() {
+        mRefreshLayout = (PtrClassicFrameLayout) mViewRoot.findViewById(R.id.frame_layout);
+        mRefreshLayout.setLastUpdateTimeRelateObject(this);
+        mRefreshLayout.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout ptrFrameLayout) {
                 getRecommend();
@@ -112,8 +105,6 @@ public class RecommendFragment extends Fragment implements WebRequestListener {
 
 	@Override
 	public void onComplete(MyWebResponse result) {
-        mFrameLayout.refreshComplete();
-
 		if (result == null || result.getResponseString() == "") {
 			return;
 		}

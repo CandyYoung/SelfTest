@@ -1,19 +1,21 @@
 apply plugin: 'android'
 
 dependencies {
-    compile 'in.srain.cube:cube-sdk:1.0.44.35'
+    compile ('in.srain.cube:cube-sdk:1.0.44.35') {
+        exclude module: 'support-v4'
+    }
     compile 'in.srain.cube:ultra-ptr:1.0.9'
     compile fileTree(include: '*.jar', dir: 'libs')
     compile project(':appcompat_v7')
 }
 
-/*repositories{
-    mavenCentral();
-}*/
-
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.1"
+
+    /*dexOptions {
+        preDexLibraries = false
+    }*/
 
     sourceSets {
         main {
