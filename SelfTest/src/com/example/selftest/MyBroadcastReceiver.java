@@ -16,4 +16,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 		}
 	}
 
+    private void test(){
+
+    }
 }
