@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.selftest.activities.AsyncTaskTestActivity">
+
+    <!--<Button
+        android:text="Task1"
+        android:id="@+id/btn_task1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="60sp"/>
+
+    <com.example.selftest.views.MyCustomView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I Am a ViewPager Test Page" />
+
+            <ViewPager
+                android:id="@+id/vp_banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <com.example.selftest.widgets.LinearItemsControl
+                android:id="@+id/lv_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

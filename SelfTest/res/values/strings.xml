@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">SelfTest</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_async_task_test">AsyncTaskTestActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
