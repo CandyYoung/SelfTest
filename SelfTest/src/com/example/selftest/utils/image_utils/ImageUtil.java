@@ -47,16 +47,29 @@ public class ImageUtil {
         loadImage(imageView, webPath, false);
     }
 
-    public void loadImage(ImageView imageView, String webPath, boolean needRound) {
+    public void loadImage(final ImageView imageView, String webPath, boolean needRound) {
         mImageView = imageView;
         mNeedRound = needRound;
 
         mImageView.clearAnimation();
-        ImageTaskManager.cancelDwonloader(webPath, imageView);
+        ImageDownloadAsyncTask taskExist = ImageTaskManager.checkDownloader(webPath, imageView);
+        if (taskExist != null) {
+            taskExist.setLoadCallback(new ImageDownloadAsyncTask.ImageLoadCallback() {
+                @Override
+                public void loadDone(Bitmap bitmap) {
+                    if (mNeedRound) {
+                        Bitmap bitmapRound = ImageUtil.get(mContext.get()).getRoundedCornerBitmap(bitmap);
+                        imageView.setImageBitmap(bitmapRound);
+                    } else {
+                        imageView.setImageBitmap(bitmap);
+                    }
+                }
+            });
+        }
 
-        ImageDownloadAsyncTask task = new ImageDownloadAsyncTask(mImageView, mContext.get(), mNeedRound);
-        ImageTaskManager.addDownLoader(webPath, task, imageView);
-        task.execute(webPath);
+        ImageDownloadAsyncTask taskNew = new ImageDownloadAsyncTask(mImageView, mContext.get(), mNeedRound);
+        ImageTaskManager.addDownLoader(webPath, taskNew, imageView);
+        taskNew.execute(webPath);
     }
 
 
