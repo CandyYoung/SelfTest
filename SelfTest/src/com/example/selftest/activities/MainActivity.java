@@ -3,54 +3,32 @@ package com.example.selftest.activities;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-import java.net.SocketAddress;
 import java.net.UnknownHostException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
-import java.util.TimerTask;
 
-import com.example.selftest.MyBroadcastReceiver;
 import com.example.selftest.R;
-import com.example.selftest.R.id;
-import com.example.selftest.R.layout;
-import com.example.selftest.services.MessageService;
-import com.example.selftest.utils.HttpUtil;
-import com.example.selftest.utils.ImageLoader;
-import com.example.selftest.utils.LoadingManager;
+import com.example.selftest.utils.LoadingAnimation;
 import com.example.selftest.utils.StreamConvertor;
+import com.example.selftest.utils.image_utils.ImageUtil;
 
-import android.R.string;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.content.AsyncTaskLoader;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.Loader;
 import android.graphics.Rect;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -98,7 +76,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onResume() {
 		super.onResume();
 
-		long size = new ImageLoader(null, this).getSize();
+		long size = ImageUtil.getSize();
 		Log.d("getSize", "size=" + size);
 		double showSize = size / 8.0f / 1024f;
 		DecimalFormat decimalFormat = new DecimalFormat("0.00");
@@ -192,7 +170,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			if (!isLoading) {
 				isLoading = true;
-				LoadingManager.getInstance(this).beginLoading3();
+				LoadingAnimation.getInstance(this).beginLoading2();
 
 				// timer = new Timer();
 				// timer.schedule(new TimerTask() {
@@ -205,7 +183,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				// }, 3000, 1000);
 			} else {
 				isLoading = false;
-				LoadingManager.getInstance(this).endLoading3();
+				LoadingAnimation.getInstance(this).endLoading2();
 
 				// timer.purge();
 				// timer.cancel();
@@ -244,7 +222,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 
 		case R.id.rl_clean:
-			new ImageLoader(null, this).ClearCache();
+			ImageUtil.clearCache();
 			String tt = null;
 			mTVCacheSize.setText(tt);
 

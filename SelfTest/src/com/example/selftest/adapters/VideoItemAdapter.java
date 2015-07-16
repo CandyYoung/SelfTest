@@ -7,11 +7,10 @@ import com.example.selftest.R;
 import com.example.selftest.activities.RoomActivity;
 import com.example.selftest.entity.RoomInfo;
 import com.example.selftest.utils.EnphasizeUtil;
-import com.example.selftest.utils.ImageLoader;
+import com.example.selftest.utils.image_utils.ImageUtil;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -98,7 +97,7 @@ public class VideoItemAdapter extends BaseAdapter {
 			picUrl = room.getSpic();
 		}
 		if (picUrl != null) {
-			new ImageLoader(holder.iv_pic, mContext).execute(picUrl);
+			ImageUtil.get(mContext).loadImage(holder.iv_pic, picUrl);
 		}
 		holder.tv_title.setText(EnphasizeUtil.transformText(room.getTitle(),
 				"<em>", "</em>", 0xff00ff00));

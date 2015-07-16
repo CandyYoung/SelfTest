@@ -2,8 +2,6 @@ package com.example.selftest.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import com.example.selftest.R;
 
@@ -12,14 +10,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -28,7 +23,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
-public class LoadingManager {
+public class LoadingAnimation {
 	private static final String TAG = "_LoadingManager";
 
 	private static Activity mContext;
@@ -38,9 +33,9 @@ public class LoadingManager {
 
 	private boolean isLoading = false;
 
-	private static LoadingManager instance;
+	private static LoadingAnimation instance;
 
-	public static LoadingManager getInstance(Activity context) {
+	public static LoadingAnimation getInstance(Activity context) {
 		mContext = context;
 		viewRoot = LayoutInflater.from(mContext)
 				.inflate(R.layout.loading, null);
@@ -49,7 +44,7 @@ public class LoadingManager {
 		viewRoot.setTag("123");
 
 		if (instance == null) {
-			instance = new LoadingManager();
+			instance = new LoadingAnimation();
 		}
 		return instance;
 	}

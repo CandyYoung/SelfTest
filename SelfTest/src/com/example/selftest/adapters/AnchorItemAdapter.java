@@ -7,15 +7,11 @@ import com.example.selftest.R;
 import com.example.selftest.activities.RoomActivity;
 import com.example.selftest.entity.AnchorInfo;
 import com.example.selftest.utils.EnphasizeUtil;
-import com.example.selftest.utils.ImageLoader;
+import com.example.selftest.utils.image_utils.ImageUtil;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,20 +36,17 @@ public class AnchorItemAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return anchors.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
-		return 0;
+		return position;
 	}
 
 	@SuppressLint("NewApi")
@@ -88,7 +81,7 @@ public class AnchorItemAdapter extends BaseAdapter {
 		viewHolder.textView_Status.setText(anchor.getStatus());
 
 		viewHolder.imageView_Avatar.setImageBitmap(null);
-		new ImageLoader(viewHolder.imageView_Avatar, mContext).execute(anchor
+		ImageUtil.get(mContext).loadImage(viewHolder.imageView_Avatar, anchor
 				.getAvatar() + "-big");
 
 		convertView

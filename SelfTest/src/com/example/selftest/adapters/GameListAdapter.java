@@ -1,14 +1,11 @@
 package com.example.selftest.adapters;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.example.selftest.R;
 import com.example.selftest.activities.GameLiveActivity;
-import com.example.selftest.adapters.VideoItemAdapter.LoadMoreCallback;
 import com.example.selftest.entity.GameInfo;
-import com.example.selftest.entity.RecommendItem;
-import com.example.selftest.utils.ImageLoader;
+import com.example.selftest.utils.image_utils.ImageUtil;
 
 import android.content.Context;
 import android.content.Intent;
@@ -83,7 +80,7 @@ public class GameListAdapter extends BaseAdapter {
 		}
 
 		holder.iv_game_icon.setImageBitmap(null);
-		new ImageLoader(holder.iv_game_icon, mContext).execute(item.getSpic());
+		ImageUtil.get(mContext).loadImage(holder.iv_game_icon, item.getSpic());
 		holder.tv_game_name.setText(item.getName());
 		convertView.setOnClickListener(new GameIconClickListener(item.getId()));
 

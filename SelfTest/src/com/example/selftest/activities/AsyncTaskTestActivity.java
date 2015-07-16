@@ -21,19 +21,19 @@ public class AsyncTaskTestActivity extends Activity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_async_task_test);
 
-        findViewById(R.id.btn_task1).setOnClickListener(this);
+        /*findViewById(R.id.btn_task1).setOnClickListener(this);*/
     }
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_task1:
+            /*case R.id.btn_task1:
                 for (int i = 1; i < 20; i++) {
                     new MyAsyncTask(i).executeOnExecutor(Executors.newFixedThreadPool(3), 11);
                 }
 
-                break;
+                break;*/
         }
     }
 
